@@ -19,7 +19,11 @@ class SSTweaksSiteConfig extends DataExtension {
         'Logo'          => 'Image'
     );
 
-    function updateCMSFields(FieldList $fields) {
+    public function ContactAddressXML() {
+        return (nl2br(Convert::raw2xml ($this->owner->ContactAddress), true));
+    }
+
+    public function updateCMSFields(FieldList $fields) {
         $fields->addFieldToTab('Root.Main', UploadField::create('Logo')->setFolderName('logos'));
         
     
