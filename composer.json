@@ -1,0 +1,24 @@
+{
+  "name": "i-lateral/silverstripe-sstweaks",
+  "description": "Some minor silverstripe tweaks that I use repeatedly on projects",
+  "type": "silverstripe-module",
+	"homepage": "http://github.com/mlewis-everley/silverstripe-sstweaks",
+	"keywords": ["silverstripe", "tweaks"],
+	"license": "BSD-3-Clause",
+	"authors": [
+		{
+			"name": "Morven Lewis-Everley",
+			"email": "morven@i-lateral.com"
+		}
+	],
+	"support": {
+		"issues": "http://github.com/mlewis-everley/silverstripe-sstweaks/issues"
+	},
+	"require": {
+		"silverstripe/framework": ">=3.0",
+		"silverstripe/cms": ">=3.0"
+	},
+	"extra": {
+		"installer-name": "sstweaks"
+	}
+}
