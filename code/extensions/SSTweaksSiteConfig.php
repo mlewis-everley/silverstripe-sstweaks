@@ -10,6 +10,7 @@ class SSTweaksSiteConfig extends DataExtension {
         "FacebookURL"       => "Varchar(100)",
         "TwitterURL"        => "Varchar(100)",
         "LinkdInURL"        => "Varchar(100)",
+        "YouTubeURL"        => "Varchar(100)",
         "ContactEmail"      => "Varchar(100)",
         "ContactPhone"      => "Varchar(50)",
         "ContactAddress"    => "Text",
@@ -56,6 +57,7 @@ class SSTweaksSiteConfig extends DataExtension {
                 TextField::create('FacebookURL', $this->owner->fieldLabel('FacebookURL')),
                 TextField::create('TwitterURL', $this->owner->fieldLabel('TwitterURL')),
                 TextField::create('LinkdInURL', $this->owner->fieldLabel('LinkdInURL'))
+                TextField::create('YouTubeURL', $this->owner->fieldLabel('YouTubeURL'))
             )
         )->setHeadingLevel(4);
 
