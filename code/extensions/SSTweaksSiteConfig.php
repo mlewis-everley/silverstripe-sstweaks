@@ -56,7 +56,7 @@ class SSTweaksSiteConfig extends DataExtension {
             array(
                 TextField::create('FacebookURL', $this->owner->fieldLabel('FacebookURL')),
                 TextField::create('TwitterURL', $this->owner->fieldLabel('TwitterURL')),
-                TextField::create('LinkdInURL', $this->owner->fieldLabel('LinkdInURL'))
+                TextField::create('LinkdInURL', $this->owner->fieldLabel('LinkdInURL')),
                 TextField::create('YouTubeURL', $this->owner->fieldLabel('YouTubeURL'))
             )
         )->setHeadingLevel(4);
