@@ -6,16 +6,21 @@
  */
 class SSTweaksSiteConfig extends DataExtension {
     public static $db = array(
-        "FooterContent"     => "HTMLText",
-        "FacebookURL"       => "Varchar(100)",
-        "TwitterURL"        => "Varchar(100)",
-        "LinkdInURL"        => "Varchar(100)",
-        "YouTubeURL"        => "Varchar(100)",
-        "ContactEmail"      => "Varchar(100)",
-        "ContactPhone"      => "Varchar(50)",
-        "ContactAddress"    => "Text",
-        "MiscContactInfo"   => "HTMLText",
-        "MapHTML"           => "HTMLText"
+        "FooterContent"         => "HTMLText",
+        "FacebookURL"           => "Varchar(100)",
+        "TwitterURL"            => "Varchar(100)",
+        "LinkdInURL"            => "Varchar(100)",
+        "YouTubeURL"            => "Varchar(100)",
+        "ContactEmail"          => "Varchar(100)",
+        "ContactPhone"          => "Varchar(50)",
+        "ContactAddress"        => "Text",
+        "MiscContactInfo"       => "HTMLText",
+        "MapHTML"               => "HTMLText",
+        "CustomMaxWidth"        => "Int",
+        "CustomMainBackground"  => "Varchar(7)",
+        "CustomBodyBackground"  => "Varchar(7)",
+        "CustomHeadBackground"  => "Varchar(7)",
+        "CustomFootBackground"  => "Varchar(7)"
     );
 
     public static $has_one = array(
@@ -40,8 +45,6 @@ class SSTweaksSiteConfig extends DataExtension {
             )
         )->setHeadingLevel(4);
 
-        $fields->addFieldToTab('Root.Main', $footer_fields);
-
         $contact_fields = ToggleCompositeField::create('ContactInfo', 'Contact Info.',
             array(
                 TextAreaField::create('ContactAddress', $this->owner->fieldLabel('ContactAddress')),
@@ -60,9 +63,21 @@ class SSTweaksSiteConfig extends DataExtension {
                 TextField::create('YouTubeURL', $this->owner->fieldLabel('YouTubeURL'))
             )
         )->setHeadingLevel(4);
+        
+        $theme_custom_fields = ToggleCompositeField::create('CustomTheme', 'Theme Customisation',
+            array(
+                TextField::create('CustomMainBackground', $this->owner->fieldLabel('CustomMainBackground')),
+                TextField::create('CustomBodyBackground', $this->owner->fieldLabel('CustomBodyBackground')),
+                TextField::create('CustomHeadBackground', $this->owner->fieldLabel('CustomHeadBackground')),
+                TextField::create('CustomFootBackground', $this->owner->fieldLabel('CustomFootBackground')),
+                TextField::create('CustomMaxWidth', $this->owner->fieldLabel('CustomMaxWidth'))
+            )
+        )->setHeadingLevel(4);
 
+        $fields->addFieldToTab('Root.Main', $footer_fields);
         $fields->addFieldToTab('Root.Main', $contact_fields);
         $fields->addFieldToTab('Root.Main', $social_fields);
+        $fields->addFieldToTab('Root.Main', $theme_custom_fields);
     }
 }
 
