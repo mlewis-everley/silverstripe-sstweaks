@@ -1,5 +1,5 @@
 <?php
 
-Object::add_extension('SiteConfig', 'SSTweaksSiteConfig');
-Object::add_extension('SiteTree', 'SSTweaksSiteTree');
-Object::add_extension('ContentController', 'SSTweaksController');
+SiteConfig::add_extension('SSTweaksSiteConfig');
+SiteTree::add_extension('SSTweaksSiteTree');
+ContentController::add_extension('SSTweaksController');
