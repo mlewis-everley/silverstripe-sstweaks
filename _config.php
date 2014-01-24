@@ -2,4 +2,5 @@
 
 SiteConfig::add_extension('SSTweaksSiteConfig');
 SiteTree::add_extension('SSTweaksSiteTree');
-ContentController::add_extension('SSTweaksController');
+Controller::add_extension('SSTweaksController');
+ContentController::add_extension('SSTweaksContentController');
