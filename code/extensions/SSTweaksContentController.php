@@ -11,10 +11,13 @@ class SSTweaksContentController extends Extension {
         $vars = array(
             "Facebook"  => ($config->FacebookURL) ? $config->FacebookURL : "",
             "Twitter"   => ($config->TwitterURL) ? $config->TwitterURL : "",
+            "GooglePlus"=> ($config->GooglePlusURL) ? $config->GooglePlusURL : "",
             "LinkdIn"   => ($config->LinkdInURL) ? $config->LinkdInURL : "",
             "YouTube"   => ($config->YouTubeURL) ? $config->YouTubeURL : "",
             "Pinterest" => ($config->PinterestURL) ? $config->PinterestURL : ""
         );
+
+        $this->owner->extend("UpdateSocialNav", $vars);
 
         return $this->owner->renderWith("SocialNav", $vars);
     }
