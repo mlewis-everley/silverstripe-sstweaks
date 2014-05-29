@@ -16,7 +16,7 @@ class SSTweaksSiteConfig extends DataExtension {
         "ContactEmail"          => "Varchar(100)",
         "ContactPhone"          => "Varchar(50)",
         "ContactAddress"        => "Text",
-        "MiscContactInfo"       => "HTMLText",
+        "MiscContactInfo"       => "Text",
         "MapHTML"               => "HTMLText",
         "CustomMaxWidth"        => "Int",
         "CustomMainBackground"  => "Varchar(7)",
