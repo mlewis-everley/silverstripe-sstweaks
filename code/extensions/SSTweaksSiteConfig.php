@@ -7,12 +7,6 @@
 class SSTweaksSiteConfig extends DataExtension {
     public static $db = array(
         "FooterContent"         => "HTMLText",
-        "FacebookURL"           => "Varchar(100)",
-        "TwitterURL"            => "Varchar(100)",
-        "GooglePlusURL"         => "Varchar(100)",
-        "LinkdInURL"            => "Varchar(100)",
-        "YouTubeURL"            => "Varchar(100)",
-        "PinterestURL"          => "Varchar(100)",
         "ContactEmail"          => "Varchar(100)",
         "ContactPhone"          => "Varchar(50)",
         "ContactAddress"        => "Text",
@@ -57,17 +51,6 @@ class SSTweaksSiteConfig extends DataExtension {
             )
         )->setHeadingLevel(4);
 
-        $social_fields = ToggleCompositeField::create('SocialInfo', 'Social Info.',
-            array(
-                TextField::create('FacebookURL', $this->owner->fieldLabel('FacebookURL')),
-                TextField::create('TwitterURL', $this->owner->fieldLabel('TwitterURL')),
-                TextField::create('GooglePlusURL', $this->owner->fieldLabel('GooglePlusURL')),
-                TextField::create('LinkdInURL', $this->owner->fieldLabel('LinkdInURL')),
-                TextField::create('YouTubeURL', $this->owner->fieldLabel('YouTubeURL')),
-                TextField::create('PinterestURL', $this->owner->fieldLabel('PinterestURL'))
-            )
-        )->setHeadingLevel(4);
-
         $theme_custom_fields = ToggleCompositeField::create('CustomTheme', 'Theme Customisation',
             array(
                 TextField::create('CustomMainBackground', $this->owner->fieldLabel('CustomMainBackground')),
@@ -80,7 +63,6 @@ class SSTweaksSiteConfig extends DataExtension {
 
         $fields->addFieldToTab('Root.Main', $footer_fields);
         $fields->addFieldToTab('Root.Main', $contact_fields);
-        $fields->addFieldToTab('Root.Main', $social_fields);
         $fields->addFieldToTab('Root.Main', $theme_custom_fields);
     }
 }

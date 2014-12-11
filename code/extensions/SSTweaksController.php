@@ -6,21 +6,15 @@
  */
 class SSTweaksController extends Extension {
 
+    /**
+     * Socialnav on SSTweaks is removed, in place of the social nav
+     * module
+     */
     public function SocialNav() {
-        $config = SiteConfig::current_site_config();
-
-        $vars = array(
-            "Facebook"  => ($config->FacebookURL) ? $config->FacebookURL : "",
-            "Twitter"   => ($config->TwitterURL) ? $config->TwitterURL : "",
-            "GooglePlus"=> ($config->GooglePlusURL) ? $config->GooglePlusURL : "",
-            "LinkdIn"   => ($config->LinkdInURL) ? $config->LinkdInURL : "",
-            "YouTube"   => ($config->YouTubeURL) ? $config->YouTubeURL : "",
-            "Pinterest" => ($config->PinterestURL) ? $config->PinterestURL : ""
-        );
-
-        $this->owner->extend("UpdateSocialNav", $vars);
-
-        return $this->owner->renderWith("SocialNav", $vars);
+        if(!class_exists("SocialNav"))
+            Deprecation::notice('3.0', 'SSTweaks.Socialnav is discontinued, please install i-lateral/silverstripe-socialnav instead.');
+        else
+            return SocialNav::create();
     }
 
     /**
