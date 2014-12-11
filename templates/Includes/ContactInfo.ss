@@ -8,5 +8,5 @@
 
     <% if $MiscContactInfo %><p>$MiscContactInfoXML</p><% end_if %>
 
-    <% if $MapHTML %>$MapHTML<% end_if %>
+    <% if $MapHTML %><div class="google-map">$MapHTML</div><% end_if %>
 <% end_with %>
