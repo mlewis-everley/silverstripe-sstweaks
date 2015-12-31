@@ -4,7 +4,8 @@
  *
  * @author morven
  */
-class SSTweaksSiteTree extends DataExtension {
+class SSTweaksSiteTree extends DataExtension
+{
     public static $db = array(
         "SummaryContent"    => "Text",
         "ShowChildren"      => "Boolean",
@@ -15,7 +16,8 @@ class SSTweaksSiteTree extends DataExtension {
         "SummaryImage"      => "Image"
     );
 
-    function updateCMSFields(FieldList $fields) {
+    public function updateCMSFields(FieldList $fields)
+    {
         $fields->removeByName("SummaryContent");
         $fields->removeByName("SummaryImage");
 
@@ -29,7 +31,8 @@ class SSTweaksSiteTree extends DataExtension {
         $fields->addFieldToTab('Root.Main', $summary_fields, 'Metadata');
     }
 
-    function updateSettingsFields(FieldList $fields) {
+    public function updateSettingsFields(FieldList $fields)
+    {
         $children = FieldGroup::create(
             CheckboxField::create('ShowChildren', 'Show children in the content area?')
         )->setTitle('Children of this page');
@@ -43,4 +46,3 @@ class SSTweaksSiteTree extends DataExtension {
         $fields->addFieldToTab('Root.Settings', $contact);
     }
 }
-
