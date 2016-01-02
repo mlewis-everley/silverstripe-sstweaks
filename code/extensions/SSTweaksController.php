@@ -4,17 +4,20 @@
  *
  * @author morven
  */
-class SSTweaksController extends Extension {
+class SSTweaksController extends Extension
+{
 
     /**
      * Socialnav on SSTweaks is removed, in place of the social nav
      * module
      */
-    public function SocialNav() {
-        if(!class_exists("SocialNav"))
+    public function SocialNav()
+    {
+        if (!class_exists("SocialNav")) {
             Deprecation::notice('3.0', 'SSTweaks.Socialnav is discontinued, please install i-lateral/silverstripe-socialnav instead.');
-        else
+        } else {
             return SocialNav::create();
+        }
     }
 
     /**
@@ -30,7 +33,8 @@ class SSTweaksController extends Extension {
      * @param $message message to send
      * @return Controller
      */
-    public function setFlashMessage($type, $message) {
+    public function setFlashMessage($type, $message)
+    {
         Session::set('Site.Message', array(
             'Type' => $type,
             'Message' => $message
@@ -44,8 +48,9 @@ class SSTweaksController extends Extension {
      *
      * @return String
      */
-    public function getFlashMessage() {
-        if($message = Session::get('Site.Message')){
+    public function getFlashMessage()
+    {
+        if ($message = Session::get('Site.Message')) {
             Session::clear('Site.Message');
             $array = new ArrayData($message);
             return $array->renderWith('FlashMessage');

@@ -4,7 +4,8 @@
  *
  * @author morven
  */
-class SSTweaksSiteConfig extends DataExtension {
+class SSTweaksSiteConfig extends DataExtension
+{
     public static $db = array(
         "FooterContent"         => "HTMLText",
         "ContactEmail"          => "Varchar(100)",
@@ -23,21 +24,24 @@ class SSTweaksSiteConfig extends DataExtension {
         'Logo'          => 'Image'
     );
 
-    public function ContactAddressXML() {
-        return (nl2br(Convert::raw2xml ($this->owner->ContactAddress), true));
+    public function ContactAddressXML()
+    {
+        return (nl2br(Convert::raw2xml($this->owner->ContactAddress), true));
     }
 
-    public function MiscContactInfoXML() {
-        return (nl2br(Convert::raw2xml ($this->owner->MiscContactInfo), true));
+    public function MiscContactInfoXML()
+    {
+        return (nl2br(Convert::raw2xml($this->owner->MiscContactInfo), true));
     }
 
-    public function updateCMSFields(FieldList $fields) {
+    public function updateCMSFields(FieldList $fields)
+    {
         $fields->addFieldToTab('Root.Main', UploadField::create('Logo')->setFolderName('logos'));
 
 
         $footer_fields = ToggleCompositeField::create('FoooterInfo', 'Footer',
             array(
-                HTMLEditorField::create('FooterContent','Content to appear in footer')->setRows(15)->addExtraClass('stacked')
+                HTMLEditorField::create('FooterContent', 'Content to appear in footer')->setRows(15)->addExtraClass('stacked')
             )
         )->setHeadingLevel(4);
 
@@ -66,4 +70,3 @@ class SSTweaksSiteConfig extends DataExtension {
         $fields->addFieldToTab('Root.Main', $theme_custom_fields);
     }
 }
-
