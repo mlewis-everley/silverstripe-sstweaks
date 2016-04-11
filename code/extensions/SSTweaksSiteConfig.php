@@ -61,7 +61,6 @@ class SSTweaksSiteConfig extends DataExtension {
         )->setHeadingLevel(4);
 
         $fields->addFieldToTab('Root.Main', $footer_fields);
-        $fields->addFieldToTab('Root.Main', $contact_fields);
     }
 }
 
